@@ -117,20 +117,13 @@ public class Scrabble {
 			}
 			if(!MyString.subsetOf(input, hand)){
 				System.out.println("Invalid word. Try Again");
-			}
-			if(isWordInDictionary(input)){
+			} else if(isWordInDictionary(input)){
 				score += wordScore(input);
 				System.out.println(input + " earned " + wordScore(input) + " points. Score: " + score + " points\n");
 				hand = MyString.remove(hand, input);
 			} else {
 				System.out.println("No such word in the dictionary. Try again."); 
 			}
-			//String hand = "cat";
-           // MyString.spacedString(hand);
-            //MyString.subsetOf("cat", hand);
-            //MyString.remove(hand, "cat");
-            //Scrabble.isWordInDictionary("cat");
-            //Scrabble.wordScore("cat");
 		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
@@ -155,17 +148,12 @@ public class Scrabble {
 			String input = in.readString();
 			//// Replace the following break statement with code
 			//// that completes the game playing loop
-			if(input == "n"){
+			if(input.equals("n")){
 				String newHand = createHand();
 				playHand(newHand);
-			}
-			if(input == "e"){
+			} else if(input.equals("e")){
 				break;
-			}
-			if(input == "e"){
-				System.out.println("Invalid input.");
-			}
-			if(input == "n"){
+			} else {
 				System.out.println("Invalid input.");
 			}
 		}
